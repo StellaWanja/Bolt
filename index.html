@@ -11,7 +11,7 @@
 <body>
 
     <!-- first slide -->
-    <section class="first-slide">
+    <section class="first-slide" data-barba="wrapper">
 
         <!-- navbar -->
         <nav class="top-nav">
@@ -27,6 +27,7 @@
                 <li><a href="">Gift Card</a></li>
             </ul>
             <div class="nav-icons">
+         
                 <a href=""><i class="fa fa-search"></i></a>
                 <a href=""><i class="fa fa-shopping-cart"></i></a>
                 <a href=""><i class="fa fa-user-circle"></i></a>
@@ -46,8 +47,99 @@
             </div>
         </nav>
 
+        <!-- slider -->
+        <div class="slider">
+            <!-- slide1 -->
+            <div class="img-slide img-active" style="background-image: url(images/black-shoe.png);"  data-barba="container" data-barba-namespace="top-slider">
+                <div class="slider-container">
+
+                    <div class="left-caption">
+                        <p>Lorem Ipsum</p>
+                        <h2>Adventure <br> Unfolds</h2>
+                    </div>
+
+                    <div class="right-caption">
+                        <p>Optimized speed<br> comfort and performance</p>
+                        <h2>$500</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- slide 2 -->
+            <div class="img-slide" style="background-image: url(images/maroon-shoes.png);"  data-barba="container" data-barba-namespace="top-slider">
+                <div class="slider-container">
+
+                    <div class="left-caption">
+                        <p>Lorem Ipsum</p>
+                        <h2>You Are<br> Confident</h2>
+                    </div>
+
+                    <div class="right-caption">
+                        <p>Feather Light<br> swift and breathable</p>
+                        <h2>$200</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- slide 3 -->
+            <div class="img-slide" style="background-image: url(images/brown-shoe.png);" >
+                <div class="slider-container">
+
+                    <div class="left-caption">
+                        <p>Lorem Ipsum</p>
+                        <h2>Walk <br> with Pride</h2>
+                    </div>
+
+                    <div class="right-caption">
+                        <p>Be ready<br> explore and dance</p>
+                        <h2>$350</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- social media -->
+        <div class="social-media">
+            <a href="#"><i class="fa fa-facebook-square"></i></a>
+            <a href=""><i class="fa fa-twitter"></i></a>
+            <a href=""><i class="fa fa-instagram"></i></a>
+        </div>
+
+        <!-- link -->
+        <div class="shop-link">
+            <a href="#">Shop now <i class="fa fa-arrow-right"></i></a>
+        </div>
+
+        <!-- prev/next -->
+        <div class="controls">
+            <div class="prev"><i class="fa fa-angle-left"></i></div>
+            <div class="next"><i class="fa fa-angle-right"></i></div>
+        </div>
+
+        <!-- indicators -->
+        <div class="indicator"></div>
+
     </section>
     
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.7/dist/barba.umd.min.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        barba.init({
+            transitions: [{
+                name: 'top-slider',
+                leave(data) {
+                return gsap.to(data.current.container, {
+                    opacity: 0
+                });
+                },
+                enter(data) {
+                return gsap.from(data.next.container, {
+                    opacity: 0
+                });
+                }
+            }]
+        });
+      </script>
 </body>
 </html>

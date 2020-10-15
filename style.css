@@ -10,10 +10,7 @@
 .first-slide{
     height: 100vh;
     width: 100%;
-    background-image: url("images/black-shoe.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    position: relative;
 }
 
 .top-nav{
@@ -22,6 +19,8 @@
     align-items: center;
     min-height: 15vh;
     width: 100%;
+    position: absolute;
+    /* z-index: 1000; */
 }
 
 .logo{
@@ -50,6 +49,7 @@
 .nav-links li a{
     color: white;
     text-decoration: none;
+    font-size: 0.75em;
 }
 
 .nav-links li a:hover{
@@ -65,10 +65,15 @@
 
 .nav-icons i{
     color: white;
+    font-size: 0.75em;
+}
+
+.nav-icons i:hover{
+    color: #cccccc;
 }
 
 .lang-menu select{
-    background-color: black;
+    background-color: transparent;
     color: white;
     border: none;
     text-transform: uppercase;
@@ -79,12 +84,6 @@
 @media screen and (max-width: 1024px){
     .logo{
         margin-left: 3%;
-    }
-    .nav-links{
-        width: 60%;
-    }
-    .nav-icons{
-        width: 25%;
     }
 }
 
@@ -136,6 +135,12 @@
     }
 }
 
+@media screen and (max-width: 480px){
+    .nav-icons{
+        width: 30%;
+    }
+}
+
 .nav-active{
     transform: translateX(0);
 }
@@ -160,4 +165,185 @@
 }
 .toggle-links .bar3{
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* top carousel */
+.slider{
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+}
+
+.img-slide{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: none;
+    animation: slide 1s ease-in;
+}
+
+@keyframes slide{
+    0%{
+        opacity: 0.9;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.img-slide.img-active{
+    display: flex;
+}
+
+.slider-container{
+    position: relative;
+    top: 40%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.left-caption, .right-caption{
+    animation: textSlide 2s ease;
+}
+
+@keyframes textSlide{
+    0%{
+        transform: translateX(50px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.left-caption{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    text-align: center;
+}
+
+.left-caption p{
+    font-size: 0.75em;
+}
+
+.left-caption h2{
+    font-size: 1.8em;
+    letter-spacing: 1px;
+}
+
+.social-media{
+    position: absolute;
+    z-index: 2;
+    bottom: 10%;
+    left: 15%;
+}
+
+.social-media a{
+    color: white;
+    cursor: pointer;
+    padding-left: 5px;
+    font-size: 0.75em;
+}
+
+.social-media a:hover{
+    color: #cccccc;
+}
+
+.right-caption{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10%;
+    text-align: right;
+}
+
+.right-caption p{
+    margin-bottom: 20px;
+    font-size: 0.75em;
+}
+
+.shop-link{
+    position: absolute;
+    z-index: 2;
+    bottom: 10%;
+    right: 10%;
+}
+
+.shop-link a{
+    color: white;
+    text-decoration: none;
+    font-size: 0.75em;
+}
+
+.shop-link i{
+    font-size: 10px;
+    padding-left: 5px;
+}
+
+.shop-link a:hover{
+    border-bottom: 2px solid white;
+}
+
+@media screen and (max-width: 480px) {
+    .left-caption p, .left-caption h2, .social-media{
+        display: none;
+    }
+    .shop-link{
+        margin-top: 50%;
+    }
+}
+
+/* controls */
+.prev, .next{
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.prev:hover, .next:hover{
+    color: #cccccc;
+}
+
+.prev{
+    left: 0;
+    margin-left: 5%;
+}
+
+.next{
+    right: 0;
+    margin-right: 5%;
+}
+
+/* circle indicators */
+.indicator{
+    position: absolute;
+    z-index: 2;
+    left: 45%;
+    bottom: 12%;
+}
+
+.indicator div{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 10px;
+}
+
+.indicator div.indicator-active{
+    background-color: #cccccc;
+}
+
+@media screen and (max-width: 480px){
+    .indicator{
+        display: none;
+    }
 }
