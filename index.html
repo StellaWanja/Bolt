@@ -2,16 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!--Glide slider -->
+    <link rel="stylesheet" href="css/glide.core.min.css">
+    <!-- Optional Theme Stylesheet -->
+    <link rel="stylesheet" href="css/glide.theme.min.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="css/style.css">
     <title>Bolt</title>
 </head>
 <body>
 
     <!-- first slide -->
-    <section class="first-slide" data-barba="wrapper">
+    <section class="first-slide">
 
         <!-- navbar -->
         <nav class="top-nav">
@@ -50,7 +57,7 @@
         <!-- slider -->
         <div class="slider">
             <!-- slide1 -->
-            <div class="img-slide img-active" style="background-image: url(images/black-shoe.png);"  data-barba="container" data-barba-namespace="top-slider">
+            <div class="img-slide img-active" style="background-image: url(images/black-shoe.png);" >
                 <div class="slider-container">
 
                     <div class="left-caption">
@@ -60,13 +67,13 @@
 
                     <div class="right-caption">
                         <p>Optimized speed<br> comfort and performance</p>
-                        <h2>$500</h2>
+                        <h2>$50</h2>
                     </div>
                 </div>
             </div>
 
             <!-- slide 2 -->
-            <div class="img-slide" style="background-image: url(images/maroon-shoes.png);"  data-barba="container" data-barba-namespace="top-slider">
+            <div class="img-slide" style="background-image: url(images/maroon-shoes.png);" >
                 <div class="slider-container">
 
                     <div class="left-caption">
@@ -76,7 +83,7 @@
 
                     <div class="right-caption">
                         <p>Feather Light<br> swift and breathable</p>
-                        <h2>$200</h2>
+                        <h2>$25</h2>
                     </div>
                 </div>
             </div>
@@ -92,7 +99,7 @@
 
                     <div class="right-caption">
                         <p>Be ready<br> explore and dance</p>
-                        <h2>$350</h2>
+                        <h2>$35</h2>
                     </div>
                 </div>
             </div>
@@ -120,26 +127,97 @@
         <div class="indicator"></div>
 
     </section>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.7/dist/barba.umd.min.js"></script>
-    <script src="script.js"></script>
 
+    <!-- second slide -->
+    <section class="second-slide">
+        <h2>New Collection</h2>
+
+        <div class="second-slide-container">
+
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                  <ul class="glide__slides">
+                    <li class="glide__slide">
+                        <div class="box-container">
+                            <img src="images/black-shoe-2-square.png" alt="">
+                            <div class="img-text">
+                                <h4>Black Shoe</h4>
+                                <p>$50</p>
+                                <a href="" type="button">Shop Now</a>
+                            </div>
+                        </div>  
+                    </li>
+                    <li class="glide__slide">
+                        <div class="box-container">
+                            <img src="images/black-shoe-3-square.png" alt="">
+                            <div class="img-text">
+                                <h4>Black Shoe</h4>
+                                <p>$51</p>
+                                <a href="" type="button">Shop Now</a>
+                            </div>
+                        </div>  
+                    </li>
+                    <li class="glide__slide">
+                        <div class="box-container">
+                            <img src="images/blue-shoe-square.png" alt="">
+                            <div class="img-text">
+                                <h4>Blue Shoe</h4>
+                                <p>$33</p>
+                                <a href="" type="button">Shop Now</a>
+                            </div>
+                        </div>  
+                    </li>
+                    <li class="glide__slide">
+                        <div class="box-container">
+                            <img src="images/white-shoe-square.png" alt="">
+                            <div class="img-text">
+                                <h4>White Shoe</h4>
+                                <p>$47</p>
+                                <a href="" type="button">Shop Now</a>
+                            </div>
+                        </div>  
+                    </li>
+                    <li class="glide__slide">
+                        <div class="box-container">
+                            <img src="images/grey-shoe-square.png" alt="">
+                            <div class="img-text">
+                                <h4>Grey Shoe</h4>
+                                <p>$30</p>
+                                <a href="" type="button">Shop Now</a>
+                            </div>
+                        </div>  
+                    </li>
+                  </ul>
+                </div>
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fa fa-angle-left"></i></button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fa fa-angle-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <!-- script files -->    
+
+    <!-- glide js -->
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>  
     <script>
-        barba.init({
-            transitions: [{
-                name: 'top-slider',
-                leave(data) {
-                return gsap.to(data.current.container, {
-                    opacity: 0
-                });
+        const options = {
+            type: 'carousel',
+            perView: 3,
+            breakpoints: {
+                1024: {
+                    perView: 2
                 },
-                enter(data) {
-                return gsap.from(data.next.container, {
-                    opacity: 0
-                });
+                700: {
+                    perView: 1
                 }
-            }]
-        });
+            }
+        }
+        new Glide('.glide', options).mount()
       </script>
+
+    <script src="js/script.js"></script>
+
 </body>
 </html>
