@@ -445,7 +445,7 @@
     font-size: 1.5em;
 }
 
-.third-slide-content a{
+.third-shop-btn{
     color: white;
     border: 2px solid white;
     padding: 5px;
@@ -454,7 +454,7 @@
     margin-top: 10px;
 }
 
-.third-slide-content a:hover{
+.third-shop-btn:hover{
     color: #cccccc;
     border: 2px solid #cccccc;
 }
@@ -711,5 +711,118 @@ footer{
     .copyright{
         margin: 10px 0;
         text-align: center;
+    }
+}
+
+/* shop-page */
+.shop-top-slide{
+    height: 100vh;
+    width: 100%;
+    background-image: url('../images/black-shoe-3.png');
+    background-size: cover;
+    position: relative;
+}
+
+.shop-top-title{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    color: white;
+    height: 50%;
+}
+
+.shop-top-title h3{
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.top-shop-btn{
+    color: white;
+    border: 2px solid white;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.top-shop-btn:hover{
+    color: #cccccc;
+    border: 2px solid #cccccc;
+}
+
+/* second slide */
+.shop-slide-two{
+    height: 200vh;
+    width: 100%;
+}
+
+.select-container{
+    display: flex;
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+.product select, .price select, .sort select{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-bottom: 3px solid black;
+    font-weight: bold;
+    font-size: 1em;
+    margin-left: 30px;
+}
+
+@media screen and (max-width:480px){
+    .select-container{
+        display: none;
+    }
+}
+
+.product-display{
+    display: flex;
+    flex-direction: column;
+}
+
+#first-display, #second-display, #third-display{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.product-display-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-display-content img{
+    height:250px;
+    margin-bottom: 10px;
+}
+
+.product-display-content button{
+    color: white;
+    background-color: black;
+    text-align: center;
+    width: 40%;
+    padding: 5px;
+}
+
+.product-display-content button:hover{
+    background-color: #333333;
+    cursor: pointer;
+}
+
+@media screen and (max-width:700px){
+
+    #first-display, #second-display{
+        margin-top: 0;
+    }
+    #third-display{
+        display: none;
+    }
+    .product-display-content{
+        margin-top: 50px;
     }
 }
