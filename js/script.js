@@ -107,60 +107,12 @@ const autoPlay = () => {
 
 let slideTimer = setInterval(autoPlay,4000);
 
-// glide js
-const glide = () => {
-    const options = {
-        type: 'carousel',
-        perView: 3,
-        breakpoints: {
-            1024: {
-                perView: 2
-            },
-            700: {
-                perView: 1
-            }
-        }
-    }
-    new Glide('.glide', options).mount()
-}
-
-// fifth slider
-const slick = () => {
-    $(document).ready(function(){
-        $('.center').slick({
-            slidesToShow: 3,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            centerMode: true,
-            focusOnSelect: true,
-            responsive: [
-              {
-                breakpoint: 768,
-                settings: {
-                  arrows: false,
-                  slidesToShow: 2
-                }
-              },
-              {
-                breakpoint: 480,
-                settings: {
-                  arrows: false,
-                  slidesToShow: 1
-                }
-              }
-            ]
-          });
-    });
-}
-
 //call functions
 const bolt = () => {
     navSlide();
     prevSlide();
     nextSlide();
     circleIndicator();
-    glide();
-    slick();
 }
 
 bolt();
